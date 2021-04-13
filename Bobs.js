@@ -4,7 +4,6 @@ class Bob
     {
         var options = 
         {
-            isStatic:true,
             restitution:0.3,
             friction:0.5,
             density:1.2
@@ -13,7 +12,7 @@ class Bob
         this.y=y;
         this.r=r;
 
-        this.body=Bodies.circle(this.x, this.y, this.r/2, options);
+        this.body=Bodies.circle(this.x, this.y, this.r, options);
         World.add(world, this.body);
     }
 
@@ -22,11 +21,12 @@ class Bob
 
         var pos = this.body.position;
         
+        this.body.velocityY = 12;
         push();
         translate(pos.x, pos.y);
         ellipseMode(RADIUS);
         strokeWeight(0.1);
-        stroke("#f77f00");
+        stroke("white");
         fill("#f77f00");
         ellipse(0,0,this.r, this.r);
         pop();
